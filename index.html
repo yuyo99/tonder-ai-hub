@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tonder AI Hub</title>
-  <meta name="description" content="Four AI assistants powering every layer of Tonder's operations">
+  <title>The Tonder Atlas</title>
+  <meta name="description" content="The AI command layer unifying every team into one high-performance machine.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%230d9488'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white'>T</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           }
         }
       }
@@ -24,599 +23,405 @@
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; background: #050810; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
 
-    /* ── Keyframe Animations ─────────────────────────────── */
-    @keyframes orbFloat {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(30px, -25px) scale(1.05); }
-      50% { transform: translate(-15px, 20px) scale(0.97); }
-      75% { transform: translate(20px, 10px) scale(1.03); }
+    body {
+      margin: 0;
+      background: #000000;
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: #f5f5f7;
     }
-    @keyframes orbFloat2 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(-25px, 15px) scale(0.96); }
-      50% { transform: translate(20px, -20px) scale(1.04); }
-      75% { transform: translate(-10px, -15px) scale(0.98); }
-    }
-    @keyframes orbFloat3 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(15px, 25px) scale(1.06); }
-      66% { transform: translate(-20px, -10px) scale(0.94); }
-    }
-    @keyframes orbFloat4 {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      30% { transform: translate(-18px, -20px) scale(1.04); }
-      60% { transform: translate(12px, 15px) scale(0.96); }
-    }
+
+    /* ── Animations ────────────────────────────────────── */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes eyeGlow {
-      0%, 100% { filter: drop-shadow(0 0 3px var(--glow-color, rgba(20,184,166,0.4))); }
-      50% { filter: drop-shadow(0 0 10px var(--glow-color, rgba(20,184,166,0.6))); }
-    }
-    @keyframes subtlePulse {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
-    @keyframes breathe {
-      0%, 100% { opacity: 0.12; transform: translate(-50%, -50%) scale(1); }
-      50% { opacity: 0.22; transform: translate(-50%, -50%) scale(1.1); }
-    }
-    @keyframes gridPulse {
-      0%, 100% { opacity: 0.025; }
-      50% { opacity: 0.05; }
-    }
-    @keyframes shootingStar {
-      0% { transform: translate(0, 0) rotate(-35deg); opacity: 0; }
-      5% { opacity: 1; }
-      30% { opacity: 1; }
-      50% { transform: translate(-600px, 400px) rotate(-35deg); opacity: 0; }
-      100% { transform: translate(-600px, 400px) rotate(-35deg); opacity: 0; }
-    }
-    @keyframes shootingStar2 {
-      0% { transform: translate(0, 0) rotate(-25deg); opacity: 0; }
-      8% { opacity: 0.7; }
-      35% { opacity: 0.7; }
-      55% { transform: translate(-500px, 350px) rotate(-25deg); opacity: 0; }
-      100% { transform: translate(-500px, 350px) rotate(-25deg); opacity: 0; }
-    }
-    @keyframes gradientShift {
+    @keyframes shimmer {
       0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    @keyframes rotateBorder {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.03; }
-      50% { opacity: 0.08; }
-    }
-    @keyframes driftUp {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+      100% { background-position: 200% 50%; }
     }
 
-    /* ── Card Styles ─────────────────────────────────────── */
+    /* ── Gradient Title ────────────────────────────────── */
+    .gradient-title {
+      background: linear-gradient(90deg, #f5f5f7 0%, #a78bfa 25%, #2dd4bf 50%, #f5f5f7 75%, #a78bfa 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 8s linear infinite;
+    }
+
+    /* ── Card ──────────────────────────────────────────── */
     .assistant-card {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 24px;
-      padding: 36px 32px 32px;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: #1d1d1f;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 32px;
       position: relative;
       overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                  border-color 0.35s ease;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .assistant-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      height: 2px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .assistant-card:hover::before {
+      opacity: 1;
     }
     .assistant-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      border-color: rgba(255, 255, 255, 0.14);
-      box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.55);
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4),
+                  0 0 40px var(--glow);
     }
 
-    /* Per-card accent glow on hover */
-    .assistant-card .card-glow {
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
-    }
-    .assistant-card .card-glow-bottom {
-      position: absolute;
-      bottom: -80px; left: -40px;
-      width: 180px; height: 180px;
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity 0.6s ease 0.1s;
-      pointer-events: none;
-    }
-    .assistant-card:hover .card-glow,
-    .assistant-card:hover .card-glow-bottom {
-      opacity: 1;
-    }
-
-    /* Rotating border glow on hover */
-    .assistant-card .rotating-border {
-      position: absolute;
-      inset: -1px;
-      border-radius: 24px;
-      overflow: hidden;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      pointer-events: none;
-      z-index: -1;
-    }
-    .assistant-card .rotating-border::before {
-      content: '';
-      position: absolute;
-      inset: -50%;
-      background: conic-gradient(from 0deg, transparent, var(--card-accent), transparent, transparent, var(--card-accent), transparent);
-      animation: rotateBorder 4s linear infinite;
-    }
-    .assistant-card:hover .rotating-border {
-      opacity: 0.4;
-    }
-
-    /* Accent line at top of card, visible on hover */
-    .assistant-card .accent-line {
-      position: absolute;
-      top: 0; left: 20%; right: 20%;
-      height: 1px;
-      border-radius: 1px;
-      opacity: 0;
-      transition: opacity 0.4s ease, left 0.4s ease, right 0.4s ease;
-      pointer-events: none;
-    }
-    .assistant-card:hover .accent-line {
-      opacity: 1;
-      left: 10%;
-      right: 10%;
-    }
-
-    /* Feature chips inside cards */
-    .feature-chip {
-      display: inline-flex;
-      font-size: 10px;
-      font-weight: 500;
-      padding: 3px 8px;
-      border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.25);
-      background: rgba(255,255,255,0.02);
-      transition: color 0.3s ease, border-color 0.3s ease;
-    }
-    .assistant-card:hover .feature-chip {
-      color: rgba(255,255,255,0.35);
-      border-color: rgba(255,255,255,0.1);
-    }
-
-    /* ── Launch Button ───────────────────────────────────── */
-    .launch-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 22px;
-      border-radius: 14px;
-      font-weight: 600;
-      font-size: 13px;
-      color: #fff;
-      text-decoration: none;
-      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    .launch-btn:hover {
-      transform: scale(1.04);
-      filter: brightness(1.1);
-    }
-    .launch-btn:active {
-      transform: scale(0.98);
-    }
-    .launch-btn svg {
-      transition: transform 0.25s ease;
-    }
-    .launch-btn:hover svg {
-      transform: translateX(3px);
-    }
-
-    /* ── Team Badge ──────────────────────────────────────── */
-    .team-badge {
-      display: inline-flex;
-      align-items: center;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 8px;
-      border: 1px solid;
-    }
-
-    /* ── Icon Container ──────────────────────────────────── */
+    /* ── Icon Container ────────────────────────────────── */
     .icon-container {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       flex-shrink: 0;
     }
-    .icon-container::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 20px;
-      opacity: 0.15;
-      transition: opacity 0.3s ease;
-    }
-    .assistant-card:hover .icon-container::before {
-      opacity: 0.25;
-    }
 
-    /* ── Noise Overlay ───────────────────────────────────── */
-    .noise-overlay {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    /* ── Status Dot ────────────────────────────────────── */
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 6px;
+      position: relative;
+      top: -1px;
     }
 
-    /* ── Stagger Delays ──────────────────────────────────── */
-    .stagger-1 { animation: fadeInUp 0.7s ease-out 0.1s both; }
-    .stagger-2 { animation: fadeInUp 0.7s ease-out 0.2s both; }
-    .stagger-3 { animation: fadeInUp 0.7s ease-out 0.3s both; }
-    .stagger-4 { animation: fadeInUp 0.7s ease-out 0.4s both; }
-    .stagger-hero { animation: fadeInUp 0.8s ease-out both; }
-    .stagger-hero-sub { animation: fadeInUp 0.8s ease-out 0.12s both; }
-    .stagger-footer { animation: fadeInUp 0.7s ease-out 0.55s both; }
+    /* ── Capability Tag ────────────────────────────────── */
+    .capability-tag {
+      display: inline-flex;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #2d2d2f;
+      color: #86868b;
+      letter-spacing: -0.01em;
+    }
 
-    /* ── Scrollbar ───────────────────────────────────────── */
+    /* ── Launch Button ─────────────────────────────────── */
+    .launch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 24px;
+      border-radius: 980px;
+      font-weight: 500;
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .launch-btn:hover {
+      opacity: 0.88;
+      transform: scale(1.02);
+    }
+    .launch-btn:active {
+      transform: scale(0.97);
+    }
+    .launch-btn svg {
+      transition: transform 0.2s ease;
+    }
+    .launch-btn:hover svg {
+      transform: translateX(2px);
+    }
+
+    /* ── Scroll Reveal ─────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.35s; }
+    .reveal-delay-4 { transition-delay: 0.5s; }
+
+    /* ── Stagger (hero only) ───────────────────────────── */
+    .stagger-hero { animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .stagger-hero-sub { animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+
+
+    /* ── Scrollbar ─────────────────────────────────────── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
-
-    /* ── Channel Icon ────────────────────────────────────── */
-    .channel-icon {
-      width: 16px;
-      height: 16px;
-      opacity: 0.35;
-      transition: opacity 0.2s ease;
-    }
-    .assistant-card:hover .channel-icon {
-      opacity: 0.55;
-    }
   </style>
 </head>
 <body>
 
   <!-- ═══════════════════════════════════════════════════════
-       BACKGROUND LAYER
+       BACKGROUND
        ═══════════════════════════════════════════════════════ -->
-  <div class="fixed inset-0 overflow-hidden pointer-events-none" style="background: linear-gradient(160deg, #050810 0%, #0a1628 40%, #0d1117 70%, #080c15 100%);">
-    <!-- Noise texture -->
-    <div class="absolute inset-0 opacity-[0.025] noise-overlay"></div>
-
-    <!-- Star field — scattered dot grid for cosmic depth -->
-    <div class="absolute inset-0" style="background-image: radial-gradient(circle, rgba(255,255,255,0.4) 0.5px, transparent 0.5px); background-size: 48px 48px; opacity: 0.03; animation: twinkle 8s ease-in-out infinite;"></div>
-    <!-- Second star layer — offset, different size for parallax -->
-    <div class="absolute inset-0" style="background-image: radial-gradient(circle, rgba(255,255,255,0.5) 0.3px, transparent 0.3px); background-size: 72px 72px; background-position: 24px 36px; opacity: 0.02; animation: twinkle 12s ease-in-out 3s infinite;"></div>
-
-    <!-- Subtle grid lines — tech feel -->
-    <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 80px 80px; animation: gridPulse 10s ease-in-out infinite;"></div>
-
-    <!-- Central aurora — large breathing blob behind hero -->
-    <div class="absolute rounded-full" style="top: 50%; left: 50%; width: 700px; height: 700px; background: radial-gradient(ellipse, rgba(20,184,166,0.06) 0%, rgba(139,92,246,0.04) 30%, rgba(245,158,11,0.02) 50%, transparent 70%); animation: breathe 8s ease-in-out infinite;"></div>
-
-    <!-- Floating orbs — primary (one per assistant color) -->
-    <div class="absolute rounded-full" style="top: 8%; left: 12%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(20,184,166,0.1) 0%, transparent 70%); animation: orbFloat 22s ease-in-out infinite;"></div>
-    <div class="absolute rounded-full" style="top: 55%; right: 8%; width: 280px; height: 280px; background: radial-gradient(circle, rgba(139,92,246,0.09) 0%, transparent 70%); animation: orbFloat2 26s ease-in-out infinite;"></div>
-    <div class="absolute rounded-full" style="bottom: 15%; left: 25%; width: 260px; height: 260px; background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%); animation: orbFloat3 20s ease-in-out infinite;"></div>
-    <div class="absolute rounded-full" style="top: 30%; right: 30%; width: 240px; height: 240px; background: radial-gradient(circle, rgba(159,232,112,0.07) 0%, transparent 70%); animation: orbFloat4 18s ease-in-out infinite;"></div>
-
-    <!-- Secondary orbs — smaller, add depth -->
-    <div class="absolute rounded-full" style="top: 70%; left: 5%; width: 160px; height: 160px; background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%); animation: orbFloat3 30s ease-in-out 5s infinite;"></div>
-    <div class="absolute rounded-full" style="top: 15%; right: 15%; width: 140px; height: 140px; background: radial-gradient(circle, rgba(245,158,11,0.05) 0%, transparent 70%); animation: orbFloat 28s ease-in-out 8s infinite;"></div>
-    <div class="absolute rounded-full" style="bottom: 30%; right: 45%; width: 180px; height: 180px; background: radial-gradient(circle, rgba(20,184,166,0.05) 0%, transparent 70%); animation: orbFloat2 32s ease-in-out 3s infinite;"></div>
-
-    <!-- Shooting stars -->
-    <div style="position: absolute; top: 12%; right: 10%; width: 120px; height: 1.5px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); border-radius: 1px; animation: shootingStar 12s ease-in-out 2s infinite;"></div>
-    <div style="position: absolute; top: 35%; right: 25%; width: 80px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); border-radius: 1px; animation: shootingStar2 18s ease-in-out 7s infinite;"></div>
-
-    <!-- Horizontal light streak across middle -->
-    <div class="absolute" style="top: 48%; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,0.02) 30%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.02) 70%, transparent 90%); animation: gridPulse 6s ease-in-out infinite;"></div>
+  <div class="fixed inset-0 pointer-events-none" style="background: #000000;">
+    <!-- Upper glow — hero area -->
+    <div class="absolute" style="top: -20%; left: 50%; transform: translateX(-50%); width: 900px; height: 600px; background: radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 70%);"></div>
+    <!-- Lower glow — cards area -->
+    <div class="absolute" style="top: 60%; left: 50%; transform: translateX(-50%); width: 800px; height: 500px; background: radial-gradient(ellipse, rgba(255,255,255,0.015) 0%, transparent 70%);"></div>
   </div>
+
 
   <!-- ═══════════════════════════════════════════════════════
        MAIN CONTENT
        ═══════════════════════════════════════════════════════ -->
-  <div class="relative z-10 min-h-screen flex flex-col items-center px-5 py-12 sm:py-16 lg:py-20">
+  <section class="relative z-10 px-6 pt-16 sm:pt-20 lg:pt-28 pb-20 sm:pb-28">
 
-    <!-- ── Tonder Logo ───────────────────────────────────── -->
-    <div class="stagger-hero mb-10 sm:mb-14 lg:mb-16">
-      <img src="tonder-logo-white.png" alt="Tonder" style="height: 28px; opacity: 0.45; filter: invert(1); -webkit-filter: invert(1);">
-    </div>
-
-    <!-- ── Hero ─────────────────────────────────────────── -->
-    <div class="text-center max-w-2xl mb-12 sm:mb-16 lg:mb-20">
-      <h1 class="stagger-hero font-serif font-semibold leading-tight" style="font-size: clamp(2rem, 5vw, 3.5rem); background: linear-gradient(135deg, #e0e0f0 0%, #ffffff 25%, #a5b4fc 50%, #ccfbf1 75%, #e0e0f0 100%); background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: gradientShift 6s ease-in-out infinite; text-shadow: none;">
-        Tonder OS
+    <!-- Hero — compact -->
+    <div class="text-center mb-14 sm:mb-18 lg:mb-20">
+      <div class="stagger-hero mb-8 sm:mb-10">
+        <img src="tonder-logo-white.png" alt="Tonder" style="height: 24px; opacity: 0.5; filter: invert(1); -webkit-filter: invert(1);">
+      </div>
+      <h1 class="stagger-hero gradient-title font-extrabold tracking-tight" style="font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -0.03em;">
+        The Tonder Atlas
       </h1>
-      <p class="stagger-hero-sub mt-4 sm:mt-5 text-base sm:text-lg" style="color: #6b7094; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.65;">
-        The Operational Brain of Tonder — the AI command layer unifying every team into one high-performance machine.
+      <p class="stagger-hero-sub mt-4 sm:mt-5 text-lg sm:text-xl font-normal" style="color: #86868b; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+        The AI command layer unifying every team into one high-performance machine.
       </p>
-      <!-- Separator line -->
-      <div class="stagger-hero-sub mt-8 mx-auto" style="width: 120px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);"></div>
     </div>
 
-    <!-- ── Cards Grid ───────────────────────────────────── -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 w-full" style="max-width: 880px;">
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 w-full mx-auto" style="max-width: 900px;">
 
-      <!-- ╔══════════════════════════════════════════╗
-           ║  MARCUS — Customer Success               ║
-           ╚══════════════════════════════════════════╝ -->
-      <div class="assistant-card stagger-1" style="--card-accent: #14b8a6;">
-        <div class="rotating-border"></div>
-        <div class="accent-line" style="background: linear-gradient(90deg, transparent, #14b8a6, transparent);"></div>
-        <div class="card-glow" style="background: radial-gradient(circle, rgba(20,184,166,0.14) 0%, transparent 70%);"></div>
-        <div class="card-glow-bottom" style="background: radial-gradient(circle, rgba(20,184,166,0.08) 0%, transparent 70%);"></div>
-
-        <div class="flex items-start gap-4 mb-5">
-          <!-- Icon -->
-          <div class="icon-container" style="background: rgba(20,184,166,0.08);">
-            <div class="icon-container" style="background: none; width: 36px; height: 36px;">
-              <svg viewBox="0 0 120 120" width="36" height="36" fill="none" style="--glow-color: rgba(20,184,166,0.5); animation: eyeGlow 3s ease-in-out infinite;">
-                <circle cx="60" cy="60" r="58" fill="#0f1c1a"/>
-                <circle cx="60" cy="60" r="58" stroke="rgba(20,184,166,0.2)" stroke-width="2"/>
-                <rect x="30" y="32" width="60" height="56" rx="12" fill="#0f1c1a" stroke="rgba(20,184,166,0.15)" stroke-width="1.5"/>
-                <rect x="36" y="36" width="48" height="14" rx="4" fill="#071210" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
-                <ellipse cx="44" cy="62" rx="6" ry="5.5" fill="#0d9488" opacity="0.4"/>
-                <ellipse cx="44" cy="62" rx="4" ry="3.5" fill="#14b8a6"/>
-                <ellipse cx="44" cy="61" rx="2" ry="1.5" fill="#ccfbf1"/>
-                <ellipse cx="76" cy="62" rx="6" ry="5.5" fill="#0d9488" opacity="0.4"/>
-                <ellipse cx="76" cy="62" rx="4" ry="3.5" fill="#14b8a6"/>
-                <ellipse cx="76" cy="61" rx="2" ry="1.5" fill="#ccfbf1"/>
-                <rect x="42" y="74" width="36" height="8" rx="3" fill="#071210" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
-                <line x1="50" y1="74" x2="50" y2="82" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
-                <line x1="58" y1="74" x2="58" y2="82" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
-                <line x1="66" y1="74" x2="66" y2="82" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
-                <line x1="60" y1="32" x2="60" y2="20" stroke="rgba(20,184,166,0.2)" stroke-width="2"/>
-                <circle cx="60" cy="18" r="3" fill="#14b8a6" opacity="0.8"/>
-              </svg>
-            </div>
+      <!-- ── MARCUS — Customer Success ──────────────────── -->
+      <div class="assistant-card reveal reveal-delay-1" style="--accent: #14b8a6; --glow: rgba(20,184,166,0.06);">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="icon-container" style="background: rgba(20,184,166,0.1);">
+            <svg viewBox="0 0 120 120" width="34" height="34" fill="none">
+              <circle cx="60" cy="60" r="58" fill="#0f1c1a"/>
+              <circle cx="60" cy="60" r="58" stroke="rgba(20,184,166,0.2)" stroke-width="2"/>
+              <rect x="30" y="32" width="60" height="56" rx="12" fill="#0f1c1a" stroke="rgba(20,184,166,0.15)" stroke-width="1.5"/>
+              <rect x="36" y="36" width="48" height="14" rx="4" fill="#071210" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
+              <ellipse cx="44" cy="62" rx="6" ry="5.5" fill="#0d9488" opacity="0.4"/>
+              <ellipse cx="44" cy="62" rx="4" ry="3.5" fill="#14b8a6"/>
+              <ellipse cx="44" cy="61" rx="2" ry="1.5" fill="#ccfbf1"/>
+              <ellipse cx="76" cy="62" rx="6" ry="5.5" fill="#0d9488" opacity="0.4"/>
+              <ellipse cx="76" cy="62" rx="4" ry="3.5" fill="#14b8a6"/>
+              <ellipse cx="76" cy="61" rx="2" ry="1.5" fill="#ccfbf1"/>
+              <rect x="42" y="74" width="36" height="8" rx="3" fill="#071210" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
+              <line x1="50" y1="74" x2="50" y2="82" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
+              <line x1="58" y1="74" x2="58" y2="82" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
+              <line x1="66" y1="74" x2="66" y2="82" stroke="rgba(20,184,166,0.1)" stroke-width="0.5"/>
+              <line x1="60" y1="32" x2="60" y2="20" stroke="rgba(20,184,166,0.2)" stroke-width="2"/>
+              <circle cx="60" cy="18" r="3" fill="#14b8a6" opacity="0.8"/>
+            </svg>
           </div>
           <div class="flex-1 min-w-0">
-            <h2 class="font-serif text-xl font-semibold" style="color: rgba(240,240,245,0.92);">Marcus<span style="color: #14b8a6;">.</span></h2>
-            <div class="mt-1.5">
-              <span class="team-badge" style="color: rgba(20,184,166,0.6); border-color: rgba(20,184,166,0.15); background: rgba(20,184,166,0.04);">Customer Success</span>
-            </div>
+            <h3 class="text-lg font-semibold" style="color: #f5f5f7;">
+              Marcus
+              <span class="status-dot" style="background: #14b8a6; box-shadow: 0 0 6px rgba(20,184,166,0.5);"></span>
+            </h3>
+            <p class="text-xs mt-0.5" style="color: #86868b;">Customer Success</p>
           </div>
-          <!-- Slack icon -->
-          <svg class="channel-icon" viewBox="0 0 24 24" fill="currentColor" style="color: #14b8a6;">
-            <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
-          </svg>
         </div>
 
-        <p class="text-sm leading-relaxed mb-4" style="color: #6b7094;">
+        <p class="text-sm leading-relaxed mb-4" style="color: #86868b;">
           Transaction analytics, acceptance rates, merchant health monitoring, and automated daily reports.
         </p>
 
         <div class="flex flex-wrap gap-1.5 mb-6">
-          <span class="feature-chip">Reports</span>
-          <span class="feature-chip">Alerts</span>
-          <span class="feature-chip">Analytics</span>
+          <span class="capability-tag">Reports</span>
+          <span class="capability-tag">Alerts</span>
+          <span class="capability-tag">Analytics</span>
         </div>
 
-        <a href="https://marcus.tonder.io" target="_blank" rel="noopener" class="launch-btn" style="background: linear-gradient(135deg, #0d9488, #14b8a6); box-shadow: 0 4px 16px -4px rgba(20,184,166,0.35);">
+        <a href="https://marcus.tonder.io" target="_blank" rel="noopener" class="launch-btn" style="background: #0d9488;">
           Launch
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
-      <!-- ╔══════════════════════════════════════════╗
-           ║  PASCAL — Merchant Operations             ║
-           ╚══════════════════════════════════════════╝ -->
-      <div class="assistant-card stagger-2" style="--card-accent: #8b5cf6;">
-        <div class="rotating-border"></div>
-        <div class="accent-line" style="background: linear-gradient(90deg, transparent, #8b5cf6, transparent);"></div>
-        <div class="card-glow" style="background: radial-gradient(circle, rgba(139,92,246,0.14) 0%, transparent 70%);"></div>
-        <div class="card-glow-bottom" style="background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);"></div>
-
-        <div class="flex items-start gap-4 mb-5">
-          <div class="icon-container" style="background: rgba(139,92,246,0.08);">
-            <div class="icon-container" style="background: none; width: 36px; height: 36px;">
-              <svg viewBox="0 0 120 120" width="36" height="36" fill="none" style="--glow-color: rgba(139,92,246,0.5); animation: eyeGlow 3s ease-in-out infinite;">
-                <circle cx="60" cy="60" r="58" fill="#120e2e"/>
-                <circle cx="60" cy="60" r="58" stroke="rgba(139,92,246,0.2)" stroke-width="2"/>
-                <rect x="30" y="32" width="60" height="56" rx="12" fill="#120e2e" stroke="rgba(139,92,246,0.15)" stroke-width="1.5"/>
-                <rect x="36" y="36" width="48" height="14" rx="4" fill="#0a0720" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
-                <ellipse cx="44" cy="62" rx="6" ry="5.5" fill="#6d28d9" opacity="0.4"/>
-                <ellipse cx="44" cy="62" rx="4" ry="3.5" fill="#8b5cf6"/>
-                <ellipse cx="44" cy="61" rx="2" ry="1.5" fill="#ede9fe"/>
-                <ellipse cx="76" cy="62" rx="6" ry="5.5" fill="#6d28d9" opacity="0.4"/>
-                <ellipse cx="76" cy="62" rx="4" ry="3.5" fill="#8b5cf6"/>
-                <ellipse cx="76" cy="61" rx="2" ry="1.5" fill="#ede9fe"/>
-                <rect x="42" y="74" width="36" height="8" rx="3" fill="#0a0720" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
-                <line x1="50" y1="74" x2="50" y2="82" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
-                <line x1="58" y1="74" x2="58" y2="82" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
-                <line x1="66" y1="74" x2="66" y2="82" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
-                <line x1="60" y1="32" x2="60" y2="20" stroke="rgba(139,92,246,0.2)" stroke-width="2"/>
-                <circle cx="60" cy="18" r="3" fill="#8b5cf6" opacity="0.8"/>
-              </svg>
-            </div>
+      <!-- ── PASCAL — Merchant Operations ───────────────── -->
+      <div class="assistant-card reveal reveal-delay-2" style="--accent: #8b5cf6; --glow: rgba(139,92,246,0.06);">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="icon-container" style="background: rgba(139,92,246,0.1);">
+            <svg viewBox="0 0 120 120" width="34" height="34" fill="none">
+              <circle cx="60" cy="60" r="58" fill="#120e2e"/>
+              <circle cx="60" cy="60" r="58" stroke="rgba(139,92,246,0.2)" stroke-width="2"/>
+              <rect x="30" y="32" width="60" height="56" rx="12" fill="#120e2e" stroke="rgba(139,92,246,0.15)" stroke-width="1.5"/>
+              <rect x="36" y="36" width="48" height="14" rx="4" fill="#0a0720" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
+              <ellipse cx="44" cy="62" rx="6" ry="5.5" fill="#6d28d9" opacity="0.4"/>
+              <ellipse cx="44" cy="62" rx="4" ry="3.5" fill="#8b5cf6"/>
+              <ellipse cx="44" cy="61" rx="2" ry="1.5" fill="#ede9fe"/>
+              <ellipse cx="76" cy="62" rx="6" ry="5.5" fill="#6d28d9" opacity="0.4"/>
+              <ellipse cx="76" cy="62" rx="4" ry="3.5" fill="#8b5cf6"/>
+              <ellipse cx="76" cy="61" rx="2" ry="1.5" fill="#ede9fe"/>
+              <rect x="42" y="74" width="36" height="8" rx="3" fill="#0a0720" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
+              <line x1="50" y1="74" x2="50" y2="82" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
+              <line x1="58" y1="74" x2="58" y2="82" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
+              <line x1="66" y1="74" x2="66" y2="82" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/>
+              <line x1="60" y1="32" x2="60" y2="20" stroke="rgba(139,92,246,0.2)" stroke-width="2"/>
+              <circle cx="60" cy="18" r="3" fill="#8b5cf6" opacity="0.8"/>
+            </svg>
           </div>
           <div class="flex-1 min-w-0">
-            <h2 class="font-serif text-xl font-semibold" style="color: rgba(240,240,245,0.92);">Pascal<span style="color: #8b5cf6;">.</span></h2>
-            <div class="mt-1.5">
-              <span class="team-badge" style="color: rgba(139,92,246,0.6); border-color: rgba(139,92,246,0.15); background: rgba(139,92,246,0.04);">Merchant Operations</span>
-            </div>
-          </div>
-          <!-- Slack + Telegram icons -->
-          <div class="flex items-center gap-1.5">
-            <svg class="channel-icon" viewBox="0 0 24 24" fill="currentColor" style="color: #8b5cf6;">
-              <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
-            </svg>
-            <svg class="channel-icon" viewBox="0 0 24 24" fill="currentColor" style="color: #8b5cf6;">
-              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-            </svg>
+            <h3 class="text-lg font-semibold" style="color: #f5f5f7;">
+              Pascal
+              <span class="status-dot" style="background: #8b5cf6; box-shadow: 0 0 6px rgba(139,92,246,0.5);"></span>
+            </h3>
+            <p class="text-xs mt-0.5" style="color: #86868b;">Merchant Operations</p>
           </div>
         </div>
 
-        <p class="text-sm leading-relaxed mb-4" style="color: #6b7094;">
+        <p class="text-sm leading-relaxed mb-4" style="color: #86868b;">
           Merchant-facing AI payment assistant with real-time transaction lookups across Slack and Telegram.
         </p>
 
         <div class="flex flex-wrap gap-1.5 mb-6">
-          <span class="feature-chip">Integrations</span>
-          <span class="feature-chip">Lookups</span>
-          <span class="feature-chip">Knowledge Base</span>
+          <span class="capability-tag">Integrations</span>
+          <span class="capability-tag">Lookups</span>
+          <span class="capability-tag">Knowledge Base</span>
         </div>
 
-        <a href="https://pascal.tonder.io" target="_blank" rel="noopener" class="launch-btn" style="background: linear-gradient(135deg, #6d28d9, #8b5cf6); box-shadow: 0 4px 16px -4px rgba(139,92,246,0.35);">
+        <a href="https://pascal.tonder.io" target="_blank" rel="noopener" class="launch-btn" style="background: #7c3aed;">
           Launch
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
-      <!-- ╔══════════════════════════════════════════╗
-           ║  ONASSIS — FinOps                         ║
-           ╚══════════════════════════════════════════╝ -->
-      <div class="assistant-card stagger-3" style="--card-accent: #f59e0b;">
-        <div class="rotating-border"></div>
-        <div class="accent-line" style="background: linear-gradient(90deg, transparent, #f59e0b, transparent);"></div>
-        <div class="card-glow" style="background: radial-gradient(circle, rgba(245,158,11,0.14) 0%, transparent 70%);"></div>
-        <div class="card-glow-bottom" style="background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);"></div>
-
-        <div class="flex items-start gap-4 mb-5">
-          <div class="icon-container" style="background: rgba(245,158,11,0.08);">
-            <div class="icon-container" style="background: none; width: 36px; height: 36px;">
-              <svg viewBox="0 0 120 120" width="36" height="36" fill="none" style="--glow-color: rgba(245,158,11,0.5); animation: eyeGlow 3s ease-in-out infinite;">
-                <circle cx="60" cy="60" r="58" fill="#1a1408"/>
-                <circle cx="60" cy="60" r="58" stroke="rgba(245,158,11,0.2)" stroke-width="2"/>
-                <!-- Chart bars -->
-                <rect x="30" y="72" width="12" height="24" rx="3" fill="#f59e0b" opacity="0.3"/>
-                <rect x="46" y="58" width="12" height="38" rx="3" fill="#f59e0b" opacity="0.5"/>
-                <rect x="62" y="44" width="12" height="52" rx="3" fill="#f59e0b" opacity="0.7"/>
-                <rect x="78" y="32" width="12" height="64" rx="3" fill="#f59e0b" opacity="0.9"/>
-                <!-- Trend line -->
-                <polyline points="36,60 52,48 68,36 84,26" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                <!-- Dollar sign -->
-                <circle cx="84" cy="26" r="8" fill="#1a1408" stroke="#f59e0b" stroke-width="1.5"/>
-                <text x="84" y="30" font-size="11" font-weight="700" text-anchor="middle" fill="#fbbf24" font-family="Inter, sans-serif">$</text>
-              </svg>
-            </div>
+      <!-- ── ONASSIS — FinOps ───────────────────────────── -->
+      <div class="assistant-card reveal reveal-delay-3" style="--accent: #f59e0b; --glow: rgba(245,158,11,0.06);">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="icon-container" style="background: rgba(245,158,11,0.1);">
+            <svg viewBox="0 0 120 120" width="34" height="34" fill="none">
+              <circle cx="60" cy="60" r="58" fill="#1a1408"/>
+              <circle cx="60" cy="60" r="58" stroke="rgba(245,158,11,0.2)" stroke-width="2"/>
+              <rect x="30" y="72" width="12" height="24" rx="3" fill="#f59e0b" opacity="0.3"/>
+              <rect x="46" y="58" width="12" height="38" rx="3" fill="#f59e0b" opacity="0.5"/>
+              <rect x="62" y="44" width="12" height="52" rx="3" fill="#f59e0b" opacity="0.7"/>
+              <rect x="78" y="32" width="12" height="64" rx="3" fill="#f59e0b" opacity="0.9"/>
+              <polyline points="36,60 52,48 68,36 84,26" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="84" cy="26" r="8" fill="#1a1408" stroke="#f59e0b" stroke-width="1.5"/>
+              <text x="84" y="30" font-size="11" font-weight="700" text-anchor="middle" fill="#fbbf24" font-family="Inter, sans-serif">$</text>
+            </svg>
           </div>
           <div class="flex-1 min-w-0">
-            <h2 class="font-serif text-xl font-semibold" style="color: rgba(240,240,245,0.92);">Onassis<span style="color: #f59e0b;">.</span></h2>
-            <div class="mt-1.5">
-              <span class="team-badge" style="color: rgba(245,158,11,0.6); border-color: rgba(245,158,11,0.15); background: rgba(245,158,11,0.04);">FinOps</span>
-            </div>
+            <h3 class="text-lg font-semibold" style="color: #f5f5f7;">
+              Onassis
+              <span class="status-dot" style="background: #f59e0b; box-shadow: 0 0 6px rgba(245,158,11,0.5);"></span>
+            </h3>
+            <p class="text-xs mt-0.5" style="color: #86868b;">FinOps</p>
           </div>
-          <!-- Dashboard icon -->
-          <svg class="channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: #f59e0b;">
-            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
-            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
-            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
-            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
-          </svg>
         </div>
 
-        <p class="text-sm leading-relaxed mb-4" style="color: #6b7094;">
+        <p class="text-sm leading-relaxed mb-4" style="color: #86868b;">
           Financial operations intelligence — reconciliation, payouts, settlement monitoring and reporting.
         </p>
 
         <div class="flex flex-wrap gap-1.5 mb-6">
-          <span class="feature-chip">Reconciliation</span>
-          <span class="feature-chip">Payouts</span>
-          <span class="feature-chip">Settlements</span>
+          <span class="capability-tag">Reconciliation</span>
+          <span class="capability-tag">Payouts</span>
+          <span class="capability-tag">Settlements</span>
         </div>
 
-        <a href="https://onassis.tonder.io" target="_blank" rel="noopener" class="launch-btn" style="background: linear-gradient(135deg, #d97706, #f59e0b); box-shadow: 0 4px 16px -4px rgba(245,158,11,0.35);">
+        <a href="https://onassis.tonder.io" target="_blank" rel="noopener" class="launch-btn" style="background: #d97706;">
           Launch
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
-      <!-- ╔══════════════════════════════════════════╗
-           ║  ZENO — RiskOps & Chargebacks             ║
-           ╚══════════════════════════════════════════╝ -->
-      <div class="assistant-card stagger-4" style="--card-accent: #9FE870;">
-        <div class="rotating-border"></div>
-        <div class="accent-line" style="background: linear-gradient(90deg, transparent, #9FE870, transparent);"></div>
-        <div class="card-glow" style="background: radial-gradient(circle, rgba(159,232,112,0.14) 0%, transparent 70%);"></div>
-        <div class="card-glow-bottom" style="background: radial-gradient(circle, rgba(159,232,112,0.08) 0%, transparent 70%);"></div>
-
-        <div class="flex items-start gap-4 mb-5">
-          <div class="icon-container" style="background: rgba(159,232,112,0.08);">
-            <div class="icon-container" style="background: none; width: 36px; height: 36px;">
-              <svg viewBox="0 0 120 120" width="36" height="36" fill="none" style="--glow-color: rgba(159,232,112,0.5); animation: eyeGlow 3s ease-in-out infinite;">
-                <circle cx="60" cy="60" r="58" fill="#0c1a08"/>
-                <circle cx="60" cy="60" r="58" stroke="rgba(159,232,112,0.2)" stroke-width="2"/>
-                <!-- Shield body -->
-                <path d="M60 25 L85 38 L85 62 C85 80 72 92 60 98 C48 92 35 80 35 62 L35 38 Z" fill="#0c1a08" stroke="rgba(159,232,112,0.2)" stroke-width="2"/>
-                <path d="M60 32 L79 42 L79 62 C79 76 69 86 60 91 C51 86 41 76 41 62 L41 42 Z" fill="#071205" stroke="rgba(159,232,112,0.1)" stroke-width="1"/>
-                <!-- Check mark -->
-                <polyline points="48,62 56,70 72,52" stroke="#9FE870" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                <!-- AI dots -->
-                <circle cx="52" cy="50" r="2" fill="#9FE870" opacity="0.5"/>
-                <circle cx="68" cy="50" r="2" fill="#9FE870" opacity="0.5"/>
-              </svg>
-            </div>
+      <!-- ── ZENO — RiskOps & Chargebacks ───────────────── -->
+      <div class="assistant-card reveal reveal-delay-4" style="--accent: #9FE870; --glow: rgba(159,232,112,0.06);">
+        <div class="flex items-start gap-4 mb-4">
+          <div class="icon-container" style="background: rgba(159,232,112,0.1);">
+            <svg viewBox="0 0 120 120" width="34" height="34" fill="none">
+              <circle cx="60" cy="60" r="58" fill="#0c1a08"/>
+              <circle cx="60" cy="60" r="58" stroke="rgba(159,232,112,0.2)" stroke-width="2"/>
+              <path d="M60 25 L85 38 L85 62 C85 80 72 92 60 98 C48 92 35 80 35 62 L35 38 Z" fill="#0c1a08" stroke="rgba(159,232,112,0.2)" stroke-width="2"/>
+              <path d="M60 32 L79 42 L79 62 C79 76 69 86 60 91 C51 86 41 76 41 62 L41 42 Z" fill="#071205" stroke="rgba(159,232,112,0.1)" stroke-width="1"/>
+              <polyline points="48,62 56,70 72,52" stroke="#9FE870" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="52" cy="50" r="2" fill="#9FE870" opacity="0.5"/>
+              <circle cx="68" cy="50" r="2" fill="#9FE870" opacity="0.5"/>
+            </svg>
           </div>
           <div class="flex-1 min-w-0">
-            <h2 class="font-serif text-xl font-semibold" style="color: rgba(240,240,245,0.92);">Zeno<span style="color: #9FE870;">.</span></h2>
-            <div class="mt-1.5">
-              <span class="team-badge" style="color: rgba(159,232,112,0.6); border-color: rgba(159,232,112,0.15); background: rgba(159,232,112,0.04);">RiskOps & Chargebacks</span>
-            </div>
+            <h3 class="text-lg font-semibold" style="color: #f5f5f7;">
+              Zeno
+              <span class="status-dot" style="background: #9FE870; box-shadow: 0 0 6px rgba(159,232,112,0.5);"></span>
+            </h3>
+            <p class="text-xs mt-0.5" style="color: #86868b;">RiskOps & Chargebacks</p>
           </div>
-          <!-- Slack icon -->
-          <svg class="channel-icon" viewBox="0 0 24 24" fill="currentColor" style="color: #9FE870;">
-            <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/>
-          </svg>
         </div>
 
-        <p class="text-sm leading-relaxed mb-4" style="color: #6b7094;">
+        <p class="text-sm leading-relaxed mb-4" style="color: #86868b;">
           Risk monitoring, Guardian antifraud analytics, chargeback management, and automated blacklisting.
         </p>
 
         <div class="flex flex-wrap gap-1.5 mb-6">
-          <span class="feature-chip">Guardian</span>
-          <span class="feature-chip">Chargebacks</span>
-          <span class="feature-chip">Blacklists</span>
+          <span class="capability-tag">Guardian</span>
+          <span class="capability-tag">Chargebacks</span>
+          <span class="capability-tag">Blacklists</span>
         </div>
 
-        <a href="https://zeno.tonder.io" target="_blank" rel="noopener" class="launch-btn" style="background: linear-gradient(135deg, #65a30d, #84cc16); box-shadow: 0 4px 16px -4px rgba(159,232,112,0.3);">
+        <a href="https://zeno.tonder.io" target="_blank" rel="noopener" class="launch-btn" style="background: #65a30d;">
           Launch
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
 
     </div>
+  </section>
 
-    <!-- ── Footer ───────────────────────────────────────── -->
-    <div class="stagger-footer mt-16 sm:mt-20 text-center">
-      <p style="font-size: 11px; color: #3a3e54;">
-        Powered by <span style="font-weight: 600; color: #4a4e63;">Tonder</span> &middot; 2026
+
+  <!-- ═══════════════════════════════════════════════════════
+       SECTION 4 — FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="relative z-10 px-6 pb-16 sm:pb-20">
+    <div class="reveal text-center">
+      <!-- Top border -->
+      <div class="mx-auto mb-10" style="max-width: 200px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);"></div>
+
+      <p style="font-size: 11px; color: #48484a; font-style: italic; max-width: 380px; margin: 0 auto 16px; line-height: 1.6; letter-spacing: -0.01em;">
+        Atlas: the central structure that supports and stabilizes the entire organization.
+      </p>
+      <p style="font-size: 12px; color: #6e6e73; letter-spacing: -0.01em;">
+        Tonder &middot; 2026
       </p>
     </div>
+  </footer>
 
-  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SCROLL REVEAL — IntersectionObserver
+       ═══════════════════════════════════════════════════════ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
 
 </body>
 </html>
